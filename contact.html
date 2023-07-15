@@ -11,63 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link ref="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <!-- <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
 
-        body {
-            background-color: rgb(70, 70, 158);
-            color: aliceblue;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            height: 50px;
-            background-color: rgb(111, 129, 134);
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-        }
-
-        nav ul li {
-            list-style: none;
-            margin: 0 24px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-        }
-
-        .left {
-            font-size: 1.5rem;
-        }
-
-        .firstSection {
-            display: flex;
-            justify-content: space-around;
-            margin: 23px 0;
-        }
-
-        .firstSection div {
-            width: 30%;
-        }
-
-        .leftSection {
-            background-color: rgb(59, 172, 59);
-        }
-
-        .rightSection {
-            background-color: rgb(59, 172, 59);
-        }
-    </style> -->
 </head>
 
 <body>
@@ -77,8 +21,8 @@
                 <ul>
                     <li><a href="/">Home </a></li>
                     <li><a href="/intro.html">My Intro</a></li>
-                    <!-- <li><a href="/services.html">Services</a></li>
-                    <li><a href="/projects.html">Projects </a></li> -->
+                    <li><a href="/services.html">Services</a></li>
+                    <!-- <li><a href="/projects.html">Projects </a></li> -->
                     <li><a href="/contact.html">Contacts</a></li>
 
                 </ul>
@@ -90,35 +34,41 @@
                 <img class="cross" src="cross.jpg" alt="" width="23">
             </div>
             <div class="contactform">
-                <h1>Contact me for work or any types of enquire</h1>
-                <form>
+                <h1>Contact me for work or any types of inquiry</h1>
+                <form id="contactForm">
                     <div class="mb-3">
-                        <label for="clientemail" class="form-label">Name</label>
-                        <input type="name" class="form-control" id="clientname" aria-describedby="emailHelp">
+                        <label for="clientname" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="clientname" aria-describedby="nameError">
+                        <span id="nameError" class="error-message"></span>
                     </div>
                     <div class="mb-3">
                         <label for="clientemail" class="form-label">Email Address</label>
-                        <input type="email" class="form-control" id="clientemail" aria-describedby="emailHelp">
+                        <input type="email" class="form-control" id="clientemail" aria-describedby="emailError">
                         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        <span id="emailError" class="error-message"></span>
                     </div>
                     <div class="mb-3">
                         <label for="clientphone" class="form-label">Phone</label>
-                        <input type="phone" class="form-control" id="clientphone">
+                        <input type="tel" class="form-control" id="clientphone" aria-describedby="phoneError">
+                        <span id="phoneError" class="error-message"></span>
                     </div>
                     <div class="mb-3">
-                        <label for="clientemail" class="form-label">Enquire</label>
-                        <input type="enquire" class="form-control" id="clientemail" aria-describedby="emailHelp">
+                        <label for="clientenquiry" class="form-label">Enquiry</label>
+                        <input type="text" class="form-control" id="clientenquiry" aria-describedby="enquiryError">
+                        <span id="enquiryError" class="error-message"></span>
                     </div>
-                    <div class="mb-3 " id="form-check">
+                    <div class="mb-3" id="form-check">
                         <input type="checkbox" class="form-check-input" id="isclient">
                         <label class="form-check-label" for="isclient">I want you to work with me</label>
+                        <span id="isclientError" class="error-message"></span>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
+
 
 </html>

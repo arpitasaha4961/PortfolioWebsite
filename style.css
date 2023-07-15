@@ -39,7 +39,7 @@
 }
 
 .main {
-    background-color: rgb(150, 150, 61);
+    background-color: rgb(35, 89, 110);
     width: 90vw;
 }
 
@@ -136,7 +136,8 @@
 }
 
 .intro {
-    margin: 0 88px;
+    margin: 100px;
+    margin-left: 150px;
 }
 
 .intro h2 {
@@ -184,3 +185,23 @@
 /* .devPic {
     display: none;
 } */
+
+.services {
+    margin: 100px;
+    margin-left: 150px;
+}
+
+.service {
+    margin-bottom: 30px;
+}
+
+.service h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.service p {
+    font-size: 16px;
+    line-height: 1.5;
+}
