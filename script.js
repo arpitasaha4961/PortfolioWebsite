@@ -1,93 +1,26 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // Sidebar functionality
+document.querySelector('.cross').style.display = "none";
+
+// Sidebar functionality
+const sidebarToggle = () => {
     const sidebar = document.querySelector('.sidebar');
-    const hamburger = document.querySelector('.hamburger');
+    sidebar.classList.toggle('sidebarGo');
     const ham = document.querySelector('.ham');
     const cross = document.querySelector('.cross');
-
-    hamburger.addEventListener('click', function () {
-        sidebar.classList.toggle('sidebarGo');
-        if (sidebar.classList.contains('sidebarGo')) {
-            ham.style.display = 'inline';
-            cross.style.display = 'none';
-        } else {
-            ham.style.display = 'none';
-            setTimeout(() => {
-                cross.style.display = 'inline';
-            }, 300);
-        }
-    });
-
-    // Form validation
-    const contactForm = document.getElementById('contactForm');
-    contactForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-        validateForm();
-    });
-
-    function validateForm() {
-        const clientNameInput = document.getElementById('clientname');
-        const clientEmailInput = document.getElementById('clientemail');
-        const clientPhoneInput = document.getElementById('clientphone');
-        const clientEnquiryInput = document.getElementById('clientenquiry');
-        const isClientInput = document.getElementById('isclient');
-
-        const clientName = clientNameInput.value.trim();
-        const clientEmail = clientEmailInput.value.trim();
-        const clientPhone = clientPhoneInput.value.trim();
-        const clientEnquiry = clientEnquiryInput.value.trim();
-        const isClient = isClientInput.checked;
-
-        const nameError = document.getElementById('nameError');
-        const emailError = document.getElementById('emailError');
-        const phoneError = document.getElementById('phoneError');
-        const enquiryError = document.getElementById('enquiryError');
-        const isClientError = document.getElementById('isclientError');
-
-        nameError.textContent = '';
-        emailError.textContent = '';
-        phoneError.textContent = '';
-        enquiryError.textContent = '';
-        isClientError.textContent = '';
-
-        let isValid = true;
-
-        if (clientName === '') {
-            nameError.textContent = 'Please enter your name.';
-            clientNameInput.focus();
-            isValid = false;
-        }
-
-        if (clientEmail === '') {
-            emailError.textContent = 'Please enter your email.';
-            clientEmailInput.focus();
-            isValid = false;
-        }
-
-        if (clientPhone === '') {
-            phoneError.textContent = 'Please enter your phone number.';
-            clientPhoneInput.focus();
-            isValid = false;
-        }
-
-        if (clientEnquiry === '') {
-            enquiryError.textContent = 'Please enter your enquiry.';
-            clientEnquiryInput.focus();
-            isValid = false;
-        }
-
-        if (!isClient) {
-            isClientError.textContent = 'Please agree to work with us.';
-            isValid = false;
-        }
-
-        // If all validations pass, submitting the form
-        if (isValid) {
-            contactForm.submit();
-        }
+    if (sidebar.classList.contains('sidebarGo')) {
+        ham.style.display = 'inline';
+        cross.style.display = 'none';
+    } else {
+        ham.style.display = 'none';
+        cross.style.display = 'inline';
     }
+};
 
-    // Project Showcase functionality
+document.querySelector('.hamburger').addEventListener('click', sidebarToggle);
+
+
+
+// Project Showcase functionality
+document.addEventListener('DOMContentLoaded', function () {
     const projects = [
         {
             title: 'Project 1',
@@ -106,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const projectsContainer = document.getElementById('projects');
 
-    projects.forEach(project => {
+    function createProjectElement(project) {
         const projectElement = document.createElement('div');
         projectElement.classList.add('project');
 
@@ -130,6 +63,88 @@ document.addEventListener('DOMContentLoaded', function () {
         projectElement.appendChild(descriptionElement);
         projectElement.appendChild(linkElement);
 
-        projectsContainer.appendChild(projectElement);
-    });
+        return projectElement;
+    }
+
+    function renderProjects() {
+        projectsContainer.innerHTML = '';
+        projects.forEach(project => {
+            const projectElement = createProjectElement(project);
+            projectsContainer.appendChild(projectElement);
+        });
+    }
+
+    renderProjects();
+});
+
+// Form validation
+document.getElementById('contactForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const clientNameInput = document.getElementById('clientname');
+    const clientEmailInput = document.getElementById('clientemail');
+    const clientPhoneInput = document.getElementById('clientphone');
+    const clientEnquiryInput = document.getElementById('clientenquiry');
+    const isClientInput = document.getElementById('isclient');
+
+    const clientName = clientNameInput.value.trim();
+    const clientEmail = clientEmailInput.value.trim();
+    const clientPhone = clientPhoneInput.value.trim();
+    const clientEnquiry = clientEnquiryInput.value.trim();
+    const isClient = isClientInput.checked;
+
+    const nameError = document.getElementById('nameError');
+    const emailError = document.getElementById('emailError');
+    const phoneError = document.getElementById('phoneError');
+    const enquiryError = document.getElementById('enquiryError');
+    const isClientError = document.getElementById('isclientError');
+
+    nameError.textContent = '';
+    emailError.textContent = '';
+    phoneError.textContent = '';
+    enquiryError.textContent = '';
+    isClientError.textContent = '';
+
+    let isValid = true;
+
+    if (clientName === '') {
+        nameError.textContent = 'Please enter your name.';
+        clientNameInput.focus();
+        isValid = false;
+    }
+
+    if (clientEmail === '') {
+        emailError.textContent = 'Please enter your email.';
+        clientEmailInput.focus();
+        isValid = false;
+    }
+
+    if (clientPhone === '') {
+        phoneError.textContent = 'Please enter your phone number.';
+        clientPhoneInput.focus();
+        isValid = false;
+    }
+
+    if (clientEnquiry === '') {
+        enquiryError.textContent = 'Please enter your enquiry.';
+        clientEnquiryInput.focus();
+        isValid = false;
+    }
+
+    if (!isClient) {
+        isClientError.textContent = 'Please agree to work with us.';
+        isValid = false;
+    }
+
+    if (isValid) {
+        // Use fetch or XMLHttpRequest to send form data to the server
+        // ...
+
+        // Clear the form fields
+        clientNameInput.value = '';
+        clientEmailInput.value = '';
+        clientPhoneInput.value = '';
+        clientEnquiryInput.value = '';
+        isClientInput.checked = false;
+    }
 });
