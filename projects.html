@@ -5,82 +5,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arpita's Portfolio Website </title>
+    <title>Arpita's Portfolio Website</title>
     <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link ref="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <!-- <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-color: rgb(70, 70, 158);
-            color: aliceblue;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            height: 50px;
-            background-color: rgb(111, 129, 134);
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-        }
-
-        nav ul li {
-            list-style: none;
-            margin: 0 24px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-        }
-
-        .left {
-            font-size: 1.5rem;
-        }
-
-        .firstSection {
-            display: flex;
-            justify-content: space-around;
-            margin: 23px 0;
-        }
-
-        .firstSection div {
-            width: 30%;
-        }
-
-        .leftSection {
-            background-color: rgb(59, 172, 59);
-        }
-
-        .rightSection {
-            background-color: rgb(59, 172, 59);
-        }
-    </style> -->
 </head>
 
 <body>
     <div class="container">
-        <div class="sidebar">
+        <div class="sidebar sidebarGo">
             <nav>
                 <ul>
                     <li><a href="/">Home </a></li>
                     <li><a href="/intro.html">My Intro</a></li>
                     <li><a href="/services.html">Services</a></li>
-                    <li><a href="/projects.html">Projects </a></li>
+                    <li><a href="/project.html">Projects</a></li>
                     <li><a href="/contact.html">Contacts</a></li>
-
                 </ul>
             </nav>
         </div>
@@ -89,12 +31,14 @@
                 <img class="ham" src="ham.jpg" alt="" width="23">
                 <img class="cross" src="cross.jpg" alt="" width="23">
             </div>
-            <div class="Projectcontainer">
-
+            <div class="project-showcase">
+                <h2>Project Showcase</h2>
+                <div id="projects"></div>
             </div>
         </div>
 
+    </div>
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 
 </html>
