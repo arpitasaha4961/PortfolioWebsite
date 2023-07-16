@@ -26,13 +26,13 @@ document.addEventListener('DOMContentLoaded', function () {
             title: 'Project 1',
             image: 'project1.jpg',
             description: 'Description of Project 1',
-            link: '#'
+            link: 'https://github.com/arpitasaha4961?tab=projects'
         },
         {
             title: 'Project 2',
             image: 'project2.jpg',
             description: 'Description of Project 2',
-            link: '#'
+            link: 'https://github.com/arpitasaha4961?tab=projects'
         },
         // Add more project objects as needed
     ];
